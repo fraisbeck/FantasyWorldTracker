@@ -1,4 +1,4 @@
-package entity;
+package worldbuilder.entity;
 
 /**
  * The type User.
@@ -9,6 +9,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String userName;
+    private String password;
 
     /**
      * Instantiates a new User.
@@ -23,12 +24,14 @@ public class User {
      * @param firstName the first name
      * @param lastName  the last name
      * @param userName  the user name
+     * @param password  the users password
      */
-    public User(int id, String firstName, String lastName, String userName) {
+    public User(int id, String firstName, String lastName, String userName, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
+        this.password = password;
     }
 
     /**
@@ -101,6 +104,14 @@ public class User {
      */
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

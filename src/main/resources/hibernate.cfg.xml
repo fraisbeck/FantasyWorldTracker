@@ -17,15 +17,15 @@
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
 
-        <mapping class="entity.Continents" />
-        <mapping class="entity.Inventories" />
-        <mapping class="entity.Items" />
-        <mapping class="entity.Locations" />
-        <mapping class="entity.Owners" />
-        <mapping class="entity.Regions" />
-        <mapping class="entity.Shops" />
-        <mapping class="entity.User" />
-        <mapping class="entity.Worlds" />
+        <mapping class="worldbuilder.entity.Continents" />
+        <mapping class="worldbuilder.entity.Inventories" />
+        <mapping class="worldbuilder.entity.Items" />
+        <mapping class="worldbuilder.entity.Locations" />
+        <mapping class="worldbuilder.entity.Owners" />
+        <mapping class="worldbuilder.entity.Regions" />
+        <mapping class="worldbuilder.entity.Shops" />
+        <mapping class="worldbuilder.entity.User" />
+        <mapping class="worldbuilder.entity.Worlds" />
 
     </session-factory>
 

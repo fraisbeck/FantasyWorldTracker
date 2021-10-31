@@ -1,31 +1,31 @@
-package entity;
+package worldbuilder.entity;
 
 /**
- * The type Regions.
+ * The type Locations.
  */
-public class Regions {
+public class Locations {
 
     private int id;
     private String name;
-    private int continentId;
+    private String region;
 
     /**
-     * Instantiates a new Regions.
+     * Instantiates a new Locations.
      */
-    public Regions() {
+    public Locations() {
     }
 
     /**
-     * Instantiates a new Regions.
+     * Instantiates a new Locations.
      *
-     * @param id          the id
-     * @param name        the name
-     * @param continentId the continent id
+     * @param id     the id
+     * @param name   the name
+     * @param region the region
      */
-    public Regions(int id, String name, int continentId) {
+    public Locations(int id, String name, String region) {
         this.id = id;
         this.name = name;
-        this.continentId = continentId;
+        this.region = region;
     }
 
     /**
@@ -65,29 +65,29 @@ public class Regions {
     }
 
     /**
-     * Gets continent id.
+     * Gets region.
      *
-     * @return the continent id
+     * @return the region
      */
-    public int getContinentId() {
-        return continentId;
+    public String getRegion() {
+        return region;
     }
 
     /**
-     * Sets continent id.
+     * Sets region.
      *
-     * @param continentId the continent id
+     * @param region the region
      */
-    public void setContinentId(int continentId) {
-        this.continentId = continentId;
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     @Override
     public String toString() {
-        return "Regions{" +
+        return "Locations{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", continentId=" + continentId +
+                ", region='" + region + '\'' +
                 '}';
     }
 }

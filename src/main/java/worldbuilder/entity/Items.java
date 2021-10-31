@@ -1,4 +1,4 @@
-package entity;
+package worldbuilder.entity;
 
 /**
  * The type Items.

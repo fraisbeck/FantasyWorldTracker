@@ -1,4 +1,4 @@
-package persistance;
+package worldbuilder.persistance;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;

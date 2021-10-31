@@ -1,4 +1,4 @@
-package controller;
+package worldbuilder.controller;
 
 public class DeleteInventory {
 

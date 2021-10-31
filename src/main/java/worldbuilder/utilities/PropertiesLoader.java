@@ -1,4 +1,4 @@
-package utilities;
+package worldbuilder.utilities;
 
 import java.io.IOException;
 import java.util.Properties;

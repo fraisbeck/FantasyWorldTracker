@@ -1,31 +1,28 @@
-package entity;
+package worldbuilder.entity;
 
 /**
- * The type Continents.
+ * The type Worlds.
  */
-public class Continents {
+public class Worlds {
 
     private int id;
     private String name;
-    private int worldId;
 
     /**
-     * Instantiates a new Continents.
+     * Instantiates a new Worlds.
      */
-    public Continents() {
+    public Worlds() {
     }
 
     /**
-     * Instantiates a new Continents.
+     * Instantiates a new Worlds.
      *
-     * @param id      the id
-     * @param name    the name
-     * @param worldId the world id
+     * @param id   the id
+     * @param name the name
      */
-    public Continents(int id, String name, int worldId) {
+    public Worlds(int id, String name) {
         this.id = id;
         this.name = name;
-        this.worldId = worldId;
     }
 
     /**
@@ -64,30 +61,11 @@ public class Continents {
         this.name = name;
     }
 
-    /**
-     * Gets world id.
-     *
-     * @return the world id
-     */
-    public int getWorldId() {
-        return worldId;
-    }
-
-    /**
-     * Sets world id.
-     *
-     * @param worldId the world id
-     */
-    public void setWorldId(int worldId) {
-        this.worldId = worldId;
-    }
-
     @Override
     public String toString() {
-        return "Continents{" +
+        return "Worlds{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", worldId=" + worldId +
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-package controller;
+package worldbuilder.controller;
 
 import javax.servlet.annotation.WebServlet;
 
