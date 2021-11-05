@@ -14,5 +14,15 @@ Week 2:     I watched all the videos for class and got my Indie project folders 
             Implimented the properties loader interface
             Implimented Hibernate into the project
             Created the User and Inventories Dao classes
+
+11/2/21:    4:30pm - 5:45pm / 9pm - 10pm
+            Finished making the Generic Dao class.
+            Started building out the base templates for the test daos
+            Started writing the cleandb.sql file for the tests
+
+11/4/21     6:30 - 10:30
+            Started building out the UserDaoTest.java file
+            finished building out the entity classes with hibernate
+            Finished running the UserDaoTest.java file successfully
             
             

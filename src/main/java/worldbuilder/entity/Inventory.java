@@ -1,20 +1,38 @@
 package worldbuilder.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
  * The type Inventories.
  */
-public class Inventories {
+@Entity(name = "Inventory")
+@Table(name = "inventories")
+public class Inventory {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    @Column(name = "idinventories")
     private int id;
+
+    @Column(name = "shopsid")
     private int shopId;
-    private int itemId;
+
+    @ManyToOne
+    private Item itemId;
+
+    @Column(name = "quantity")
     private int quantity;
+
+    @Column(name = "price")
     private int price;
 
     /**
      * Instantiates a new Inventories.
      */
-    public Inventories() {
+    public Inventory() {
     }
 
     /**
@@ -26,7 +44,7 @@ public class Inventories {
      * @param quantity the quantity
      * @param price    the price
      */
-    public Inventories(int id, int shopId, int itemId, int quantity, int price) {
+    public Inventory(int id, int shopId, Item itemId, int quantity, int price) {
         this.id = id;
         this.shopId = shopId;
         this.itemId = itemId;
@@ -75,7 +93,7 @@ public class Inventories {
      *
      * @return the item id
      */
-    public int getItemId() {
+    public Item getItemId() {
         return itemId;
     }
 
@@ -84,7 +102,7 @@ public class Inventories {
      *
      * @param itemId the item id
      */
-    public void setItemId(int itemId) {
+    public void setItemId(Item itemId) {
         this.itemId = itemId;
     }
 

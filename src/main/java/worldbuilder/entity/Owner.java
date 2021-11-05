@@ -1,19 +1,35 @@
 package worldbuilder.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
  * The type Owners.
  */
-public class Owners {
+@Entity(name = "Owner")
+@Table(name = "owners")
+public class Owner {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    @Column(name = "idowners")
     private int id;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "profession")
     private String profession;
 
     /**
      * Instantiates a new Owners.
      */
-    public Owners() {
+    public Owner() {
     }
 
     /**
@@ -24,7 +40,7 @@ public class Owners {
      * @param lastName   the last name
      * @param profession the profession
      */
-    public Owners(int id, String firstName, String lastName, String profession) {
+    public Owner(int id, String firstName, String lastName, String profession) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

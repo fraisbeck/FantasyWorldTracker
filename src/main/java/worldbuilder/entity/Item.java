@@ -1,19 +1,35 @@
 package worldbuilder.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
  * The type Items.
  */
-public class Items {
+@Entity(name = "Item")
+@Table(name = "items")
+public class Item {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    @Column(name = "iditems")
     private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "rarity")
     private String rarity;
+
+    @Column(name = "itemcategory")
     private String category;
 
     /**
      * Instantiates a new Items.
      */
-    public Items() {
+    public Item() {
     }
 
     /**
@@ -24,7 +40,7 @@ public class Items {
      * @param rarity   the rarity
      * @param category the category
      */
-    public Items(int id, String name, String rarity, String category) {
+    public Item(int id, String name, String rarity, String category) {
         this.id = id;
         this.name = name;
         this.rarity = rarity;

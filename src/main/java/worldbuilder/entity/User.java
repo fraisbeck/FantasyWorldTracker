@@ -1,14 +1,33 @@
 package worldbuilder.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.Objects;
+
 /**
  * The type User.
  */
+@Entity(name = "User")
+@Table(name = "user")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    @Column(name = "iduser")
     private int id;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "user_name")
     private String userName;
+
+    @Column(name = "password")
     private String password;
 
     /**
@@ -19,12 +38,26 @@ public class User {
 
     /**
      * Instantiates a new User.
+     * @param firstName the first name
+     * @param lastName  the last name
+     * @param userName  the username
+     * @param password  the users password
+     */
+    public User(String firstName, String lastName, String userName, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
+    }
+
+    /**
+     * Instantiates a new User.
      *
      * @param id        the id
      * @param firstName the first name
      * @param lastName  the last name
-     * @param userName  the user name
-     * @param password  the users password
+     * @param userName  the username
+     * @param password  the password
      */
     public User(int id, String firstName, String lastName, String userName, String password) {
         this.id = id;
@@ -89,27 +122,37 @@ public class User {
     }
 
     /**
-     * Gets user name.
+     * Gets username.
      *
-     * @return the user name
+     * @return the username
      */
     public String getUserName() {
         return userName;
     }
 
     /**
-     * Sets user name.
+     * Sets username.
      *
-     * @param userName the user name
+     * @param userName the username
      */
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
+    /**
+     * Gets password.
+     *
+     * @return the password
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Sets password.
+     *
+     * @param password the password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
@@ -122,5 +165,21 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id && firstName.equals(user.firstName)
+                && lastName.equals(user.lastName)
+                && userName.equals(user.userName)
+                && password.equals(user.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, userName, password);
     }
 }

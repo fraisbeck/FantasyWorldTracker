@@ -1,31 +1,40 @@
 package worldbuilder.entity;
 
-/**
- * The type Continents.
- */
-public class Continents {
+import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
+
+/**
+ * The type Worlds.
+ */
+@Entity(name = "World")
+@Table(name = "worlds")
+public class World {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
+    @GenericGenerator(name = "native",strategy = "native")
+    @Column(name = "idworlds")
     private int id;
+
+    @Column(name = "name")
     private String name;
-    private int worldId;
 
     /**
-     * Instantiates a new Continents.
+     * Instantiates a new Worlds.
      */
-    public Continents() {
+    public World() {
     }
 
     /**
-     * Instantiates a new Continents.
+     * Instantiates a new Worlds.
      *
-     * @param id      the id
-     * @param name    the name
-     * @param worldId the world id
+     * @param id   the id
+     * @param name the name
      */
-    public Continents(int id, String name, int worldId) {
+    public World(int id, String name) {
         this.id = id;
         this.name = name;
-        this.worldId = worldId;
     }
 
     /**
@@ -64,30 +73,11 @@ public class Continents {
         this.name = name;
     }
 
-    /**
-     * Gets world id.
-     *
-     * @return the world id
-     */
-    public int getWorldId() {
-        return worldId;
-    }
-
-    /**
-     * Sets world id.
-     *
-     * @param worldId the world id
-     */
-    public void setWorldId(int worldId) {
-        this.worldId = worldId;
-    }
-
     @Override
     public String toString() {
-        return "Continents{" +
+        return "Worlds{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", worldId=" + worldId +
                 '}';
     }
 }

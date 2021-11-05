@@ -1,18 +1,32 @@
 package worldbuilder.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
  * The type Locations.
  */
-public class Locations {
+@Entity(name = "Location")
+@Table(name = "locations")
+public class Location {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    @Column(name = "idlocations")
     private int id;
+
+    @Column(name = "name")
     private String name;
-    private String region;
+
+    @ManyToOne
+    private Region region;
 
     /**
      * Instantiates a new Locations.
      */
-    public Locations() {
+    public Location() {
     }
 
     /**
@@ -22,7 +36,7 @@ public class Locations {
      * @param name   the name
      * @param region the region
      */
-    public Locations(int id, String name, String region) {
+    public Location(int id, String name, Region region) {
         this.id = id;
         this.name = name;
         this.region = region;
@@ -69,7 +83,7 @@ public class Locations {
      *
      * @return the region
      */
-    public String getRegion() {
+    public Region getRegion() {
         return region;
     }
 
@@ -78,7 +92,7 @@ public class Locations {
      *
      * @param region the region
      */
-    public void setRegion(String region) {
+    public void setRegion(Region region) {
         this.region = region;
     }
 

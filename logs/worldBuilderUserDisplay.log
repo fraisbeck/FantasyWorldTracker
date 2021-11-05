@@ -1,0 +1,138 @@
+[DEBUG] 2021-11-04 20:33:55.774 [main] GenericDao - The list of entities [User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}, User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}]
+[DEBUG] 2021-11-04 20:34:13.209 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 20:34:13.377 [main] GenericDao - Entity to delete: 
+[DEBUG] 2021-11-04 20:34:13.379 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:34:13.497 [main] GenericDao - The list of entities [User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}, User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}]
+[DEBUG] 2021-11-04 20:34:13.536 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:34:13.571 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:34:13.794 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 20:34:13.796 [main] GenericDao - Searching for: User{id=4, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 20:36:29.609 [main] GenericDao - The list of entities [User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}, User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}, User{id=4, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 20:36:29.654 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:36:29.695 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}
+[DEBUG] 2021-11-04 20:36:29.844 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 20:36:29.847 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 20:36:41.052 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:36:41.188 [main] GenericDao - The list of entities [User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}, User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=4, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 20:36:41.224 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:36:41.264 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 20:36:41.276 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 20:36:41.279 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 20:36:41.443 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 20:36:41.446 [main] GenericDao - Searching for: User{id=5, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 20:37:26.006 [main] GenericDao - The list of entities [User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}, User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=4, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=5, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 20:38:38.049 [main] GenericDao - The list of entities [User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}, User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}]
+[DEBUG] 2021-11-04 20:38:54.537 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 20:39:04.645 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 20:39:04.830 [main] GenericDao - Entity to delete: 
+[DEBUG] 2021-11-04 20:39:04.831 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:39:04.941 [main] GenericDao - The list of entities [User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}, User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}]
+[DEBUG] 2021-11-04 20:39:04.979 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:39:05.015 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}
+[DEBUG] 2021-11-04 20:39:05.138 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 20:39:05.139 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 20:39:05.304 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 20:39:05.307 [main] GenericDao - Searching for: User{id=6, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 20:39:28.094 [main] GenericDao - Searching for: User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}
+[DEBUG] 2021-11-04 20:39:28.249 [main] GenericDao - Entity to delete: 
+[DEBUG] 2021-11-04 20:39:28.251 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:39:28.367 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=6, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 20:39:28.404 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:39:28.435 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 20:39:28.439 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 20:39:28.440 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 20:39:28.598 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 20:39:28.601 [main] GenericDao - Searching for: User{id=7, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 20:40:19.290 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=6, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=7, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 20:40:30.205 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:41:47.222 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:41:47.471 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=6, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=7, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 20:41:47.506 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 20:41:47.543 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 20:41:47.556 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 20:41:47.558 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 20:41:47.698 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 20:41:47.701 [main] GenericDao - Searching for: User{id=8, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 21:45:15.944 [main] GenericDao - The list of entities [User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}, User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}]
+[DEBUG] 2021-11-04 21:45:28.147 [main] GenericDao - Searching for: User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}
+[DEBUG] 2021-11-04 21:45:28.275 [main] GenericDao - Entity to delete: 
+[DEBUG] 2021-11-04 21:45:28.277 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 21:45:28.389 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}]
+[DEBUG] 2021-11-04 21:45:28.438 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 21:45:28.473 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}
+[DEBUG] 2021-11-04 21:45:28.557 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 21:45:28.559 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 21:45:28.787 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 21:45:28.790 [main] GenericDao - Searching for: User{id=9, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 21:46:02.468 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}, User{id=9, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 21:46:12.792 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 21:46:12.929 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}, User{id=9, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 21:46:12.967 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 21:46:13.001 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 21:46:13.015 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 21:46:13.016 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 21:46:13.212 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 21:46:13.214 [main] GenericDao - Searching for: User{id=10, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 21:46:41.902 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 21:46:42.040 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}, User{id=9, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=10, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 21:46:42.079 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 21:46:42.115 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 21:46:42.127 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 21:46:42.129 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 21:46:42.322 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 21:46:42.324 [main] GenericDao - Searching for: User{id=11, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 21:47:32.528 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}, User{id=9, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=10, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=11, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 21:48:31.981 [main] GenericDao - Searching for: User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}
+[DEBUG] 2021-11-04 21:48:32.161 [main] GenericDao - Entity to delete: 
+[DEBUG] 2021-11-04 21:48:32.162 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 21:48:32.273 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}]
+[DEBUG] 2021-11-04 21:48:32.309 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 21:48:32.338 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}
+[DEBUG] 2021-11-04 21:48:32.397 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 21:48:32.398 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 21:48:32.569 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 21:48:32.572 [main] GenericDao - Searching for: User{id=12, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 21:48:48.149 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}, User{id=12, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 21:50:27.015 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 21:50:27.152 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}, User{id=12, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 21:50:27.190 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 21:50:27.226 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 21:50:27.238 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 21:50:27.240 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 21:50:27.391 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 21:50:27.393 [main] GenericDao - Searching for: User{id=13, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 22:00:10.988 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 22:00:11.129 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}, User{id=12, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=13, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 22:00:11.168 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 22:00:11.201 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 22:00:11.213 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 22:00:11.215 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 22:00:11.452 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 22:00:11.455 [main] GenericDao - Searching for: User{id=14, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 22:04:42.475 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 22:04:42.609 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}, User{id=12, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=13, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=14, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 22:04:42.648 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 22:04:42.683 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 22:04:42.696 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 22:04:42.697 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 22:04:43.060 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 22:04:43.062 [main] GenericDao - Searching for: User{id=15, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 22:12:49.555 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 22:12:49.696 [main] GenericDao - The list of entities [User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}, User{id=12, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=13, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=14, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}, User{id=15, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}]
+[DEBUG] 2021-11-04 22:12:49.735 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 22:12:49.769 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 22:12:49.783 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 22:12:49.784 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 22:12:50.010 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 22:12:50.012 [main] GenericDao - Searching for: User{id=16, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 22:18:57.538 [main] GenericDao - Searching for: User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}
+[DEBUG] 2021-11-04 22:18:57.652 [main] GenericDao - Entity to delete: 
+[DEBUG] 2021-11-04 22:18:57.654 [main] GenericDao - Searching for: null
+[DEBUG] 2021-11-04 22:18:58.060 [main] GenericDao - The list of entities [User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}, User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}]
+[DEBUG] 2021-11-04 22:18:58.450 [main] GenericDao - Searching for: User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}
+[DEBUG] 2021-11-04 22:18:58.845 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}
+[DEBUG] 2021-11-04 22:18:59.015 [main] GenericDao - Saved or updated: 
+[DEBUG] 2021-11-04 22:18:59.016 [main] GenericDao - Searching for: User{id=2, firstName='Joe', lastName='Raisbeck', userName='jlouise'}
+[DEBUG] 2021-11-04 22:18:59.546 [main] GenericDao - Inserted Entity Id: 
+[DEBUG] 2021-11-04 22:18:59.549 [main] GenericDao - Searching for: User{id=17, firstName='Frank', lastName='Raisbeck', userName='fraisbeck'}
+[DEBUG] 2021-11-04 22:19:22.008 [main] GenericDao - The list of entities [User{id=1, firstName='Jennifer', lastName='Scott', userName='jscott'}, User{id=2, firstName='Joe', lastName='Louise', userName='jlouise'}, User{id=3, firstName='Katie', lastName='Fiora', userName='kfiroa'}]

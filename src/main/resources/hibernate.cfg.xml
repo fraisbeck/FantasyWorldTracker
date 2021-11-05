@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:8080/worldbuilder</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/worldbuilder</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
 
@@ -17,15 +17,15 @@
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
 
-        <mapping class="worldbuilder.entity.Continents" />
-        <mapping class="worldbuilder.entity.Inventories" />
-        <mapping class="worldbuilder.entity.Items" />
-        <mapping class="worldbuilder.entity.Locations" />
-        <mapping class="worldbuilder.entity.Owners" />
-        <mapping class="worldbuilder.entity.Regions" />
-        <mapping class="worldbuilder.entity.Shops" />
+        <mapping class="worldbuilder.entity.Continent" />
+        <mapping class="worldbuilder.entity.Inventory" />
+        <mapping class="worldbuilder.entity.Item" />
+        <mapping class="worldbuilder.entity.Location" />
+        <mapping class="worldbuilder.entity.Owner" />
+        <mapping class="worldbuilder.entity.Region" />
+        <mapping class="worldbuilder.entity.Shop" />
         <mapping class="worldbuilder.entity.User" />
-        <mapping class="worldbuilder.entity.Worlds" />
+        <mapping class="worldbuilder.entity.World" />
 
     </session-factory>
 

@@ -1,20 +1,38 @@
 package worldbuilder.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
  * The type Shops.
  */
-public class Shops {
+@Entity(name = "Shop")
+@Table(name = "shops")
+public class Shop {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    @Column(name = "idshops")
     private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "shopcategory")
     private String shopCategory;
-    private int locationId;
-    private int ownerId;
+
+    @ManyToOne
+    private Location locationId;
+
+    @ManyToOne
+    private Owner ownerId;
 
     /**
      * Instantiates a new Shops.
      */
-    public Shops() {
+    public Shop() {
     }
 
     /**
@@ -26,7 +44,7 @@ public class Shops {
      * @param locationId   the location id
      * @param ownerId      the owner id
      */
-    public Shops(int id, String name, String shopCategory, int locationId, int ownerId) {
+    public Shop(int id, String name, String shopCategory, Location locationId, Owner ownerId) {
         this.id = id;
         this.name = name;
         this.shopCategory = shopCategory;
@@ -93,7 +111,7 @@ public class Shops {
      *
      * @return the location id
      */
-    public int getLocationId() {
+    public Location getLocationId() {
         return locationId;
     }
 
@@ -102,7 +120,7 @@ public class Shops {
      *
      * @param locationId the location id
      */
-    public void setLocationId(int locationId) {
+    public void setLocationId(Location locationId) {
         this.locationId = locationId;
     }
 
@@ -111,7 +129,7 @@ public class Shops {
      *
      * @return the owner id
      */
-    public int getOwnerId() {
+    public Owner getOwnerId() {
         return ownerId;
     }
 
@@ -120,7 +138,7 @@ public class Shops {
      *
      * @param ownerId the owner id
      */
-    public void setOwnerId(int ownerId) {
+    public void setOwnerId(Owner ownerId) {
         this.ownerId = ownerId;
     }
 

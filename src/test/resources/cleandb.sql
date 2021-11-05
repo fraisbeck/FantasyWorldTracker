@@ -1,0 +1,10 @@
+delete from continents;
+delete from inventories;
+delete from items;
+delete from locations;
+delete from owners;
+delete from regions;
+delete from shops;
+delete from user;
+INSERT INTO `user` VALUES (1, "Jennifer", "Scott", "jscott", "first"), (2, "Joe", "Louise", "jlouise", "second"), (3, "Katie", "Fiora", "kfiroa", "third");
+delete from worlds;

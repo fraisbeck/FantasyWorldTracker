@@ -1,18 +1,32 @@
 package worldbuilder.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
  * The type Regions.
  */
-public class Regions {
+@Entity(name = "Region")
+@Table(name = "regions")
+public class Region {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    @Column(name = "idregions")
     private int id;
+
+    @Column(name = "name")
     private String name;
-    private int continentId;
+
+    @ManyToOne
+    private Continent continentId;
 
     /**
      * Instantiates a new Regions.
      */
-    public Regions() {
+    public Region() {
     }
 
     /**
@@ -22,7 +36,7 @@ public class Regions {
      * @param name        the name
      * @param continentId the continent id
      */
-    public Regions(int id, String name, int continentId) {
+    public Region(int id, String name, Continent continentId) {
         this.id = id;
         this.name = name;
         this.continentId = continentId;
@@ -69,7 +83,7 @@ public class Regions {
      *
      * @return the continent id
      */
-    public int getContinentId() {
+    public Continent getContinentId() {
         return continentId;
     }
 
@@ -78,7 +92,7 @@ public class Regions {
      *
      * @param continentId the continent id
      */
-    public void setContinentId(int continentId) {
+    public void setContinentId(Continent continentId) {
         this.continentId = continentId;
     }
 

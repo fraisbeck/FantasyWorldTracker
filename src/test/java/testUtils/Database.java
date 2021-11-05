@@ -1,8 +1,11 @@
-package worldbuilder.persistance;
+package testUtils;
 
-import worldbuilder.utilities.PropertiesLoader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,44 +14,71 @@ import java.sql.Statement;
 import java.util.Properties;
 
 /**
- * Provides access to the database
+ * Provides access the database
  * Created on 8/31/16.
  *
  * @author pwaite
- * @author Alex M - Fall 2019 - added multi-line sql capability
  */
 
-public class Database implements PropertiesLoader {
+public class Database {
 
-    // create an object of the class Database
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
     private static Database instance = new Database();
 
     private Properties properties;
+
     private Connection connection;
 
-    /** private constructor prevents instantiating this class anywhere else
-	**/
+    private static final String DATABASE_PROPERTIES_FILE = "/database.properties";
+
+    /**
+     * Create the database class
+     */
     private Database() {
-        properties = loadProperties("/database.properties");
+        loadProperties();
 
     }
 
-    /** get the only Database object available
-        @return the single database object
-    */
+    /**
+     * Load up properties for connection info
+     */
+
+    private void loadProperties() {
+        properties = new Properties();
+        try {
+            properties.load (this.getClass().getResourceAsStream(DATABASE_PROPERTIES_FILE));
+        } catch (IOException ioe) {
+            logger.error("Database.loadProperties()...Cannot load the properties file", ioe);
+        } catch (Exception e) {
+            logger.error("Database.loadProperties()...", e);
+        }
+
+    }
+
+    /**
+     * Gets instance - singleton pattern usage.
+     *
+     * @return the instance
+     */
     public static Database getInstance() {
         return instance;
     }
 
-    /** get the database connection
-        @return the database connection
-    */
+    /**
+     * Gets connection.
+     *
+     * @return the connection
+     */
     public Connection getConnection() {
         return connection;
     }
-  
-    /** attempt to connect to the database
-    */
+
+    /**
+     * Connect.
+     *
+     * @throws Exception the exception
+     */
     public void connect() throws Exception {
         if (connection != null)
             return;
@@ -63,14 +93,15 @@ public class Database implements PropertiesLoader {
         connection = DriverManager.getConnection(url, properties.getProperty("username"),  properties.getProperty("password"));
     }
 
-    /** close and clean up the database connection
-    */
+    /**
+     * Disconnect.
+     */
     public void disconnect() {
         if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {
-                System.out.println("Cannot close connection" + e);
+                logger.error("Cannot close connection", e);
             }
         }
 
@@ -86,29 +117,26 @@ public class Database implements PropertiesLoader {
 
         Statement stmt = null;
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(classloader.getResourceAsStream(sqlFile))))  {
+        InputStream inputStream = classloader.getResourceAsStream(sqlFile);
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
 
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connect();
             stmt = connection.createStatement();
 
-            String sql = "";
-            while (br.ready())
-            {
-                char inputValue = (char)br.read();
-
-                if(inputValue == ';')
-                {
-                    stmt.executeUpdate(sql);
-                    sql = "";
+            while (true) {
+                String sql = br.readLine();
+                if (sql == null) {
+                    break;
                 }
-                else
-                    sql += inputValue;
+                stmt.executeUpdate(sql);
+
             }
 
         } catch (SQLException se) {
-            System.out.println("SQL Exception" + se);
+            logger.error(se);
         } catch (Exception e) {
-            System.out.println("Exception" + e);
+            logger.error(e);
         } finally {
             disconnect();
         }
