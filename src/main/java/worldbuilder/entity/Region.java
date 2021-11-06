@@ -3,6 +3,9 @@ package worldbuilder.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * The type Regions.
@@ -14,14 +17,16 @@ public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    @Column(name = "idregions")
+    @Column(name = "id")
     private int id;
-
     @Column(name = "name")
     private String name;
-
     @ManyToOne
-    private Continent continentId;
+    @JoinColumn(name = "continent_id", foreignKey = @ForeignKey(name = "continent_id"))
+    private Continent continent;
+
+    @OneToMany(mappedBy = "region", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Location> regionLocations = new HashSet<>();
 
     /**
      * Instantiates a new Regions.
@@ -32,14 +37,25 @@ public class Region {
     /**
      * Instantiates a new Regions.
      *
-     * @param id          the id
-     * @param name        the name
-     * @param continentId the continent id
+     * @param id        the id
+     * @param name      the name
+     * @param continent continent id
      */
-    public Region(int id, String name, Continent continentId) {
+    public Region(int id, String name, Continent continent) {
         this.id = id;
         this.name = name;
-        this.continentId = continentId;
+        this.continent = continent;
+    }
+
+    /**
+     * Instantiates a new Region.
+     *
+     * @param name      the name
+     * @param continent the continent
+     */
+    public Region(String name, Continent continent) {
+        this.name = name;
+        this.continent = continent;
     }
 
     /**
@@ -83,25 +99,77 @@ public class Region {
      *
      * @return the continent id
      */
-    public Continent getContinentId() {
-        return continentId;
+    public Continent getContinent() {
+        return continent;
     }
 
     /**
      * Sets continent id.
      *
-     * @param continentId the continent id
+     * @param continent the continent id
      */
-    public void setContinentId(Continent continentId) {
-        this.continentId = continentId;
+    public void setContinent(Continent continent) {
+        this.continent = continent;
+    }
+
+
+    /**
+     * Gets region locations.
+     *
+     * @return the region locations
+     */
+    public Set<Location> getRegionLocations() {
+        return regionLocations;
+    }
+
+    /**
+     * Sets region locations.
+     *
+     * @param regionLocations the region locations
+     */
+    public void setRegionLocations(Set<Location> regionLocations) {
+        this.regionLocations = regionLocations;
+    }
+
+    /**
+     * Add location.
+     *
+     * @param location the location
+     */
+    public void addLocation (Location location) {
+        regionLocations.add(location);
+        location.setRegion(this);
+    }
+
+    /**
+     * Remove location.
+     *
+     * @param location the location
+     */
+    public void removeLocation (Location location) {
+        regionLocations.remove(location);
+        location.setRegion(null);
     }
 
     @Override
     public String toString() {
-        return "Regions{" +
+        return "Region{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", continentId=" + continentId +
+                ", continent=" + continent +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Region region = (Region) o;
+        return id == region.id && name.equals(region.name) && continent.equals(region.continent);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, continent);
     }
 }

@@ -3,6 +3,9 @@ package worldbuilder.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * The type Locations.
@@ -14,14 +17,16 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    @Column(name = "idlocations")
+    @Column(name = "id")
     private int id;
-
     @Column(name = "name")
     private String name;
-
     @ManyToOne
+    @JoinColumn(name = "region_id", foreignKey = @ForeignKey(name = "region_id"))
     private Region region;
+
+    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Shop> shopsLocated = new HashSet<>();
 
     /**
      * Instantiates a new Locations.
@@ -38,6 +43,17 @@ public class Location {
      */
     public Location(int id, String name, Region region) {
         this.id = id;
+        this.name = name;
+        this.region = region;
+    }
+
+    /**
+     * Instantiates a new Location.
+     *
+     * @param name   the name
+     * @param region the region
+     */
+    public Location(String name, Region region) {
         this.name = name;
         this.region = region;
     }
@@ -96,6 +112,45 @@ public class Location {
         this.region = region;
     }
 
+
+    /**
+     * Gets shops located.
+     *
+     * @return the shops located
+     */
+    public Set<Shop> getShopsLocated() {
+        return shopsLocated;
+    }
+
+    /**
+     * Sets shops located.
+     *
+     * @param shopsLocated the shops located
+     */
+    public void setShopsLocated(Set<Shop> shopsLocated) {
+        this.shopsLocated = shopsLocated;
+    }
+
+    /**
+     * Add shop.
+     *
+     * @param shop the shop
+     */
+    public void addShop (Shop shop) {
+        shopsLocated.add(shop);
+        shop.setLocation(this);
+    }
+
+    /**
+     * Remove shop.
+     *
+     * @param shop the shop
+     */
+    public void removeShop (Shop shop) {
+        shopsLocated.remove(shop);
+        shop.setLocation(null);
+    }
+
     @Override
     public String toString() {
         return "Locations{" +
@@ -103,5 +158,18 @@ public class Location {
                 ", name='" + name + '\'' +
                 ", region='" + region + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return id == location.id && name.equals(location.name) && region.equals(location.region);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, region);
     }
 }

@@ -3,6 +3,9 @@ package worldbuilder.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * The type Shops.
@@ -14,20 +17,18 @@ public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    @Column(name = "idshops")
+    @Column(name = "id")
     private int id;
-
     @Column(name = "name")
     private String name;
-
     @Column(name = "shopcategory")
     private String shopCategory;
-
     @ManyToOne
-    private Location locationId;
-
+    @JoinColumn(name = "location_id", foreignKey = @ForeignKey(name = "location_id"))
+    private Location location;
     @ManyToOne
-    private Owner ownerId;
+    @JoinColumn(name = "owner_id", foreignKey = @ForeignKey(name = "owner_id"))
+    private Owner owner;
 
     /**
      * Instantiates a new Shops.
@@ -41,15 +42,30 @@ public class Shop {
      * @param id           the id
      * @param name         the name
      * @param shopCategory the shop category
-     * @param locationId   the location id
-     * @param ownerId      the owner id
+     * @param location     the location id
+     * @param owner        the owner id
      */
-    public Shop(int id, String name, String shopCategory, Location locationId, Owner ownerId) {
+    public Shop(int id, String name, String shopCategory, Location location, Owner owner) {
         this.id = id;
         this.name = name;
         this.shopCategory = shopCategory;
-        this.locationId = locationId;
-        this.ownerId = ownerId;
+        this.location = location;
+        this.owner = owner;
+    }
+
+    /**
+     * Instantiates a new Shop.
+     *
+     * @param name         the name
+     * @param shopCategory the shop category
+     * @param location     the location
+     * @param owner        the owner
+     */
+    public Shop(String name, String shopCategory, Location location, Owner owner) {
+        this.name = name;
+        this.shopCategory = shopCategory;
+        this.location = location;
+        this.owner = owner;
     }
 
     /**
@@ -111,17 +127,17 @@ public class Shop {
      *
      * @return the location id
      */
-    public Location getLocationId() {
-        return locationId;
+    public Location getLocation() {
+        return location;
     }
 
     /**
      * Sets location id.
      *
-     * @param locationId the location id
+     * @param location the location id
      */
-    public void setLocationId(Location locationId) {
-        this.locationId = locationId;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     /**
@@ -129,17 +145,17 @@ public class Shop {
      *
      * @return the owner id
      */
-    public Owner getOwnerId() {
-        return ownerId;
+    public Owner getOwner() {
+        return owner;
     }
 
     /**
      * Sets owner id.
      *
-     * @param ownerId the owner id
+     * @param owner the owner id
      */
-    public void setOwnerId(Owner ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
     @Override
@@ -148,8 +164,21 @@ public class Shop {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", shopCategory='" + shopCategory + '\'' +
-                ", locationId=" + locationId +
-                ", ownerId=" + ownerId +
+                ", locationId=" + location +
+                ", ownerId=" + owner +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Shop shop = (Shop) o;
+        return id == shop.id && Objects.equals(name, shop.name) && Objects.equals(shopCategory, shop.shopCategory) && Objects.equals(location, shop.location) && Objects.equals(owner, shop.owner);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, shopCategory, location, owner);
     }
 }

@@ -3,6 +3,9 @@ package worldbuilder.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * The type Owners.
@@ -14,17 +17,17 @@ public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    @Column(name = "idowners")
+    @Column(name = "id")
     private int id;
-
     @Column(name = "first_name")
     private String firstName;
-
     @Column(name = "last_name")
     private String lastName;
-
     @Column(name = "profession")
     private String profession;
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Shop> shopsOwned = new HashSet<>();
 
     /**
      * Instantiates a new Owners.
@@ -42,6 +45,19 @@ public class Owner {
      */
     public Owner(int id, String firstName, String lastName, String profession) {
         this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.profession = profession;
+    }
+
+    /**
+     * Instantiates a new Owner.
+     *
+     * @param firstName  the first name
+     * @param lastName   the last name
+     * @param profession the profession
+     */
+    public Owner(String firstName, String lastName, String profession) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.profession = profession;
@@ -119,6 +135,45 @@ public class Owner {
         this.profession = profession;
     }
 
+
+    /**
+     * Gets shops owned.
+     *
+     * @return the shops owned
+     */
+    public Set<Shop> getShopsOwned() {
+        return shopsOwned;
+    }
+
+    /**
+     * Sets shops owned.
+     *
+     * @param shopsOwned the shops owned
+     */
+    public void setShopsOwned(Set<Shop> shopsOwned) {
+        this.shopsOwned = shopsOwned;
+    }
+
+    /**
+     * Add shop.
+     *
+     * @param shop the shop
+     */
+    public void addShop (Shop shop) {
+        shopsOwned.add(shop);
+        shop.setOwner(this);
+    }
+
+    /**
+     * Remove shop.
+     *
+     * @param shop the shop
+     */
+    public void removeShop (Shop shop) {
+        shopsOwned.remove(shop);
+        shop.setOwner(null);
+    }
+
     @Override
     public String toString() {
         return "Owners{" +
@@ -127,5 +182,18 @@ public class Owner {
                 ", lastName='" + lastName + '\'' +
                 ", profession='" + profession + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Owner owner = (Owner) o;
+        return id == owner.id && firstName.equals(owner.firstName) && lastName.equals(owner.lastName) && profession.equals(owner.profession);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, profession);
     }
 }

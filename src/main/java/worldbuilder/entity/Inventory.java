@@ -3,6 +3,7 @@ package worldbuilder.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * The type Inventories.
@@ -14,18 +15,16 @@ public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    @Column(name = "idinventories")
+    @Column(name = "id")
     private int id;
-
-    @Column(name = "shopsid")
-    private int shopId;
-
     @ManyToOne
-    private Item itemId;
-
+    @JoinColumn(name = "shop_id", foreignKey = @ForeignKey(name = "shop_id"))
+    private Shop shop;
+    @ManyToOne
+    @JoinColumn(name = "item_id", foreignKey = @ForeignKey(name = "item_id"))
+    private Item item;
     @Column(name = "quantity")
     private int quantity;
-
     @Column(name = "price")
     private int price;
 
@@ -39,15 +38,30 @@ public class Inventory {
      * Instantiates a new Inventories.
      *
      * @param id       the id
-     * @param shopId   the shop id
-     * @param itemId   the item id
+     * @param shop     the shop id
+     * @param item     the item id
      * @param quantity the quantity
      * @param price    the price
      */
-    public Inventory(int id, int shopId, Item itemId, int quantity, int price) {
+    public Inventory(int id, Shop shop, Item item, int quantity, int price) {
         this.id = id;
-        this.shopId = shopId;
-        this.itemId = itemId;
+        this.shop = shop;
+        this.item = item;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    /**
+     * Instantiates a new Inventory.
+     *
+     * @param shop     the shop
+     * @param item     the item
+     * @param quantity the quantity
+     * @param price    the price
+     */
+    public Inventory(Shop shop, Item item, int quantity, int price) {
+        this.shop = shop;
+        this.item = item;
         this.quantity = quantity;
         this.price = price;
     }
@@ -75,17 +89,17 @@ public class Inventory {
      *
      * @return the shop id
      */
-    public int getShopId() {
-        return shopId;
+    public Shop getShop() {
+        return shop;
     }
 
     /**
      * Sets shop id.
      *
-     * @param shopId the shop id
+     * @param shop the shop id
      */
-    public void setShopId(int shopId) {
-        this.shopId = shopId;
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 
     /**
@@ -93,17 +107,17 @@ public class Inventory {
      *
      * @return the item id
      */
-    public Item getItemId() {
-        return itemId;
+    public Item getItem() {
+        return item;
     }
 
     /**
      * Sets item id.
      *
-     * @param itemId the item id
+     * @param item the item id
      */
-    public void setItemId(Item itemId) {
-        this.itemId = itemId;
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     /**
@@ -146,10 +160,23 @@ public class Inventory {
     public String toString() {
         return "Inventories{" +
                 "id=" + id +
-                ", shopId=" + shopId +
-                ", itemId=" + itemId +
+                ", shopId=" + shop +
+                ", itemId=" + item +
                 ", quantity=" + quantity +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Inventory inventory = (Inventory) o;
+        return id == inventory.id && quantity == inventory.quantity && price == inventory.price && shop.equals(inventory.shop) && item.equals(inventory.item);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, shop, item, quantity, price);
     }
 }

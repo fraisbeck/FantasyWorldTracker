@@ -3,6 +3,9 @@ package worldbuilder.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * The type Continents.
@@ -14,14 +17,16 @@ public class Continent {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    @Column(name = "idcontinents")
+    @Column(name = "id")
     private int id;
-
     @Column(name = "name")
     private String name;
-
     @ManyToOne
-    private World worldId;
+    @JoinColumn(name = "world_id", foreignKey = @ForeignKey(name = "world_id"))
+    private World world;
+
+    @OneToMany(mappedBy = "continent", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Region> continentalRegions = new HashSet<>();
 
     /**
      * Instantiates a new Continents.
@@ -32,14 +37,14 @@ public class Continent {
     /**
      * Instantiates a new Continents.
      *
-     * @param id      the id
-     * @param name    the name
-     * @param worldId the world id
+     * @param id    the id
+     * @param name  the name
+     * @param world the world id
      */
-    public Continent(int id, String name, World worldId) {
+    public Continent(int id, String name, World world) {
         this.id = id;
         this.name = name;
-        this.worldId = worldId;
+        this.world = world;
     }
 
     /**
@@ -83,17 +88,55 @@ public class Continent {
      *
      * @return the world id
      */
-    public World getWorldId() {
-        return worldId;
+    public World getWorld() {
+        return world;
     }
 
     /**
      * Sets world id.
      *
-     * @param worldId the world id
+     * @param world the world id
      */
-    public void setWorldId(World worldId) {
-        this.worldId = worldId;
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+    /**
+     * Gets continental regions.
+     *
+     * @return the continental regions
+     */
+    public Set<Region> getContinentalRegions() {
+        return continentalRegions;
+    }
+
+    /**
+     * Sets continental regions.
+     *
+     * @param continentalRegions the continental regions
+     */
+    public void setContinentalRegions(Set<Region> continentalRegions) {
+        this.continentalRegions = continentalRegions;
+    }
+
+    /**
+     * Add region.
+     *
+     * @param region the region
+     */
+    public void addRegion (Region region) {
+        continentalRegions.add(region);
+        region.setContinent(this);
+    }
+
+    /**
+     * Remove region.
+     *
+     * @param region the region
+     */
+    public void removeRegion (Region region) {
+        continentalRegions.remove(region);
+        region.setContinent(null);
     }
 
     @Override
@@ -101,7 +144,20 @@ public class Continent {
         return "Continents{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", worldId=" + worldId +
+                ", worldId=" + world +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Continent continent = (Continent) o;
+        return id == continent.id && name.equals(continent.name) && world.equals(continent.world);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, world);
     }
 }

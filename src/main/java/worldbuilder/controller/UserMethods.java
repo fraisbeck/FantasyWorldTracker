@@ -1,23 +1,23 @@
 package worldbuilder.controller;
 
 import worldbuilder.entity.User;
-import worldbuilder.persistance.UserDao;
+import worldbuilder.persistance.GenericDao;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.awt.geom.GeneralPath;
 import java.util.List;
 
 @Path("/users")
 public class UserMethods {
 
-    UserDao userDao = new UserDao();
+    GenericDao genericDao = new GenericDao(User.class);
 
     @GET
     @Path("/all")
     @Produces("text/plain")
     public Response getUsers() {
-        List<User> list = userDao.getAllUsers();
+        List<User> list = genericDao.getAll();
         String output = "";
         for (User user : list) {
             output += user.toString();
