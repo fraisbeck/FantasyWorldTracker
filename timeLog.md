@@ -9,7 +9,7 @@
 | 11/2/21  | Finished making the Generic Dao class.  Started building out the base templates for the test daos.  Started writing the cleandb.sql file for the tests  | 2  |   |
 | 11/4/21  | Started building out the UserDaoTest.java file.  Finished building out the entity classes with hibernate.  Finished running the UserDaoTest.java file successfully  | 4  |   |
 | 11/5/21  | Finished up the rest of the Daotest files and got the one to many and many to ones working  |  5 |   |
-| 11/6/21  |   |   |   |
-            
+| 11/6/21  | Finalized the DaoTests and fixed the errors I was getting with my One to many and Many to ones  |  6 |   |
+|   |   |   |   |            
             
             

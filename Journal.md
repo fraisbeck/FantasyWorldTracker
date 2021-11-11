@@ -13,4 +13,11 @@ Tasks Completed:
 * Wrote a brand new full cleandbs.sql file
 * WorldDaoTest running
 * UserDaoTest running
-* ContinentTest running (still need search by world)
+* ContinentTest running 
+* InventoryTest running
+* ItemsTest running
+* LocationsTest running
+* RegionsTest running
+* ShopsTest running
+* OwnerTest running
+
