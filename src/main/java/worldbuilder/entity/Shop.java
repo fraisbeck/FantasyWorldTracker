@@ -29,6 +29,9 @@ public class Shop {
     @ManyToOne
     @JoinColumn(name = "owner_id", foreignKey = @ForeignKey(name = "owner_id"))
     private Owner owner;
+    @ManyToOne
+    @JoinColumn(name = "world_id", foreignKey = @ForeignKey(name = "world_id_shops"))
+    private World world;
 
     /**
      * Instantiates a new Shops.
@@ -44,13 +47,15 @@ public class Shop {
      * @param shopCategory the shop category
      * @param location     the location id
      * @param owner        the owner id
+     * @param world        the world id
      */
-    public Shop(int id, String name, String shopCategory, Location location, Owner owner) {
+    public Shop(int id, String name, String shopCategory, Location location, Owner owner, World world) {
         this.id = id;
         this.name = name;
         this.shopCategory = shopCategory;
         this.location = location;
         this.owner = owner;
+        this.world = world;
     }
 
     /**
@@ -60,12 +65,14 @@ public class Shop {
      * @param shopCategory the shop category
      * @param location     the location
      * @param owner        the owner
+     * @param world        the world id
      */
-    public Shop(String name, String shopCategory, Location location, Owner owner) {
+    public Shop(String name, String shopCategory, Location location, Owner owner, World world) {
         this.name = name;
         this.shopCategory = shopCategory;
         this.location = location;
         this.owner = owner;
+        this.world = world;
     }
 
     /**
@@ -158,14 +165,24 @@ public class Shop {
         this.owner = owner;
     }
 
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
     @Override
     public String toString() {
-        return "Shops{" +
+        return "Shop{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", shopCategory='" + shopCategory + '\'' +
-                ", locationId=" + location +
-                ", ownerId=" + owner +
+                ", location=" + location +
+                ", owner=" + owner +
+                ", world=" + world +
                 '}';
     }
 
@@ -174,11 +191,11 @@ public class Shop {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Shop shop = (Shop) o;
-        return id == shop.id && Objects.equals(name, shop.name) && Objects.equals(shopCategory, shop.shopCategory) && Objects.equals(location, shop.location) && Objects.equals(owner, shop.owner);
+        return id == shop.id && name.equals(shop.name) && shopCategory.equals(shop.shopCategory) && location.equals(shop.location) && owner.equals(shop.owner) && world.equals(shop.world);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, shopCategory, location, owner);
+        return Objects.hash(id, name, shopCategory, location, owner, world);
     }
 }

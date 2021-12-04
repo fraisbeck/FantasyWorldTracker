@@ -16,6 +16,7 @@ public class OwnersDaoTest {
      * The Dao.
      */
     GenericDao dao;
+    GenericDao worldDao;
 
     /**
      * Creating the dao
@@ -23,6 +24,7 @@ public class OwnersDaoTest {
     @BeforeEach
     void setUp() {
         dao = new GenericDao(Owner.class);
+        worldDao = new GenericDao(World.class);
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
     }
@@ -51,7 +53,8 @@ public class OwnersDaoTest {
      */
     @Test
     void insertSuccess() {
-        Owner newOwner = new Owner("Jeffery", "Ozborne", "Tailor");
+        World newWorld = (World) worldDao.getById(2);
+        Owner newOwner = new Owner("Jeffery", "Ozborne", "Tailor", newWorld);
         int id = dao.insert(newOwner);
         assertNotEquals(0, id);
         Owner insertedOwner = (Owner) dao.getById(id);

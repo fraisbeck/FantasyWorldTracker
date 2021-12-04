@@ -21,3 +21,11 @@ Tasks Completed:
 * ShopsTest running
 * OwnerTest running
 
+### Week 11
+Tasks Completed
+* Shell Webpages built and gathering data from the database
+* Links built for searching and adding/updating for each table
+* Icons added to the menu bar to be used if the site is on the phone
+* Table search's working with options of search terms
+* Tables built to display correct data information
+* Links built to search for correct information

@@ -24,6 +24,9 @@ public class Location {
     @ManyToOne
     @JoinColumn(name = "region_id", foreignKey = @ForeignKey(name = "region_id"))
     private Region region;
+    @ManyToOne
+    @JoinColumn(name = "world_id", foreignKey = @ForeignKey(name = "world_id_location"))
+    private World world;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Shop> shopsLocated = new HashSet<>();
@@ -40,11 +43,13 @@ public class Location {
      * @param id     the id
      * @param name   the name
      * @param region the region
+     * @param world  the world id
      */
-    public Location(int id, String name, Region region) {
+    public Location(int id, String name, Region region, World world) {
         this.id = id;
         this.name = name;
         this.region = region;
+        this.world = world;
     }
 
     /**
@@ -52,10 +57,12 @@ public class Location {
      *
      * @param name   the name
      * @param region the region
+     * @param world  the world id
      */
-    public Location(String name, Region region) {
+    public Location(String name, Region region, World world) {
         this.name = name;
         this.region = region;
+        this.world = world;
     }
 
     /**
@@ -114,6 +121,25 @@ public class Location {
 
 
     /**
+     * Gets world.
+     *
+     * @return the world
+     */
+    public World getWorld() {
+        return world;
+    }
+
+    /**
+     * Sets world.
+     *
+     * @param world the world
+     */
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+
+    /**
      * Gets shops located.
      *
      * @return the shops located
@@ -153,10 +179,11 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Locations{" +
+        return "Location{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", region='" + region + '\'' +
+                ", region=" + region +
+                ", world=" + world +
                 '}';
     }
 
@@ -165,11 +192,11 @@ public class Location {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Location location = (Location) o;
-        return id == location.id && name.equals(location.name) && region.equals(location.region);
+        return id == location.id && name.equals(location.name) && region.equals(location.region) && world.equals(location.world);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, region);
+        return Objects.hash(id, name, region, world);
     }
 }

@@ -54,7 +54,7 @@ public class RegionsDaoTest {
     @Test
     void insertSuccess() {
         Continent newContinent = (Continent) continentDao.getById(6);
-        Region newRegion = new Region("Utopia", newContinent);
+        Region newRegion = new Region("Utopia", newContinent, newContinent.getWorld());
         int id = dao.insert(newRegion);
         assertNotEquals(0, id);
         Region insertedRegion = (Region) dao.getById(id);

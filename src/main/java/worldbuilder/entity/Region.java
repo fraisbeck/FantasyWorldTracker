@@ -24,6 +24,9 @@ public class Region {
     @ManyToOne
     @JoinColumn(name = "continent_id", foreignKey = @ForeignKey(name = "continent_id"))
     private Continent continent;
+    @ManyToOne
+    @JoinColumn(name = "world_id", foreignKey = @ForeignKey(name = "world_id_regions"))
+    private World world;
 
     @OneToMany(mappedBy = "region", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Location> regionLocations = new HashSet<>();
@@ -40,11 +43,13 @@ public class Region {
      * @param id        the id
      * @param name      the name
      * @param continent continent id
+     * @param world     the world id
      */
-    public Region(int id, String name, Continent continent) {
+    public Region(int id, String name, Continent continent, World world) {
         this.id = id;
         this.name = name;
         this.continent = continent;
+        this.world = world;
     }
 
     /**
@@ -52,10 +57,12 @@ public class Region {
      *
      * @param name      the name
      * @param continent the continent
+     * @param world     the world id
      */
-    public Region(String name, Continent continent) {
+    public Region(String name, Continent continent, World world) {
         this.name = name;
         this.continent = continent;
+        this.world = world;
     }
 
     /**
@@ -114,6 +121,25 @@ public class Region {
 
 
     /**
+     * Gets world.
+     *
+     * @return the world
+     */
+    public World getWorld() {
+        return world;
+    }
+
+    /**
+     * Sets world.
+     *
+     * @param world the world
+     */
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+
+    /**
      * Gets region locations.
      *
      * @return the region locations
@@ -157,6 +183,7 @@ public class Region {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", continent=" + continent +
+                ", world=" + world +
                 '}';
     }
 
@@ -165,11 +192,11 @@ public class Region {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Region region = (Region) o;
-        return id == region.id && name.equals(region.name) && continent.equals(region.continent);
+        return id == region.id && name.equals(region.name) && continent.equals(region.continent) && world.equals(region.world);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, continent);
+        return Objects.hash(id, name, continent, world);
     }
 }

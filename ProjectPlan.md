@@ -12,6 +12,6 @@
 - [x] Design Database
 - [x] One Dao with Full Crud implemented with Hibernate and Tested
 - [x] Log4j implemented
-- [ ] Build JSP Pages
+- [X] Build JSP Pages
 - [ ] Deploy to AWS with at least 1 jsp returning data
 

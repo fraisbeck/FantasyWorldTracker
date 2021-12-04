@@ -48,6 +48,17 @@ public class Continent {
     }
 
     /**
+     * Instantiates a new Continent.
+     *
+     * @param name  the name
+     * @param world the world
+     */
+    public Continent(String name, World world) {
+        this.name = name;
+        this.world = world;
+    }
+
+    /**
      * Gets id.
      *
      * @return the id

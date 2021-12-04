@@ -57,7 +57,7 @@ public class ShopsDaoTest {
     void insertSuccess() {
         Location newLocation = (Location) locationDao.getById(7);
         Owner newOwner = (Owner) ownerDao.getById(4);
-        Shop newShop = new Shop("New Shop Name", "Tailor", newLocation, newOwner);
+        Shop newShop = new Shop("New Shop Name", "Tailor", newLocation, newOwner, newLocation.getWorld());
         int id = dao.insert(newShop);
         assertNotEquals(0, id);
         Shop insertedShop = (Shop) dao.getById(id);

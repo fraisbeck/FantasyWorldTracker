@@ -54,7 +54,7 @@ public class LocationsDaoTest {
     @Test
     void insertSuccess() {
         Region newRegion = (Region) regionDao.getById(2);
-        Location newLocation = new Location("NewLocation", newRegion);
+        Location newLocation = new Location("NewLocation", newRegion, newRegion.getWorld());
         int id = dao.insert(newLocation);
         assertNotEquals(0, id);
         Location insertedLocation = (Location) dao.getById(id);

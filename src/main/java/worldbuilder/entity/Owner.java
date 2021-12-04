@@ -25,6 +25,9 @@ public class Owner {
     private String lastName;
     @Column(name = "profession")
     private String profession;
+    @ManyToOne
+    @JoinColumn(name = "world_id", foreignKey = @ForeignKey(name = "world_id_owner"))
+    private World world;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Shop> shopsOwned = new HashSet<>();
@@ -42,12 +45,14 @@ public class Owner {
      * @param firstName  the first name
      * @param lastName   the last name
      * @param profession the profession
+     * @param world      the world
      */
-    public Owner(int id, String firstName, String lastName, String profession) {
+    public Owner(int id, String firstName, String lastName, String profession, World world) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.profession = profession;
+        this.world = world;
     }
 
     /**
@@ -56,11 +61,13 @@ public class Owner {
      * @param firstName  the first name
      * @param lastName   the last name
      * @param profession the profession
+     * @param world      the world
      */
-    public Owner(String firstName, String lastName, String profession) {
+    public Owner(String firstName, String lastName, String profession, World world) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.profession = profession;
+        this.world = world;
     }
 
     /**
@@ -137,6 +144,25 @@ public class Owner {
 
 
     /**
+     * Gets world.
+     *
+     * @return the world
+     */
+    public World getWorld() {
+        return world;
+    }
+
+    /**
+     * Sets world.
+     *
+     * @param world the world
+     */
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+
+    /**
      * Gets shops owned.
      *
      * @return the shops owned
@@ -176,11 +202,12 @@ public class Owner {
 
     @Override
     public String toString() {
-        return "Owners{" +
+        return "Owner{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", profession='" + profession + '\'' +
+                ", world=" + world +
                 '}';
     }
 
@@ -189,11 +216,11 @@ public class Owner {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Owner owner = (Owner) o;
-        return id == owner.id && firstName.equals(owner.firstName) && lastName.equals(owner.lastName) && profession.equals(owner.profession);
+        return id == owner.id && firstName.equals(owner.firstName) && lastName.equals(owner.lastName) && profession.equals(owner.profession) && world.equals(owner.world);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, profession);
+        return Objects.hash(id, firstName, lastName, profession, world);
     }
 }

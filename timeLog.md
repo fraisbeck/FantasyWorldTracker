@@ -10,6 +10,8 @@
 | 11/4/21  | Started building out the UserDaoTest.java file.  Finished building out the entity classes with hibernate.  Finished running the UserDaoTest.java file successfully  | 4  |   |
 | 11/5/21  | Finished up the rest of the Daotest files and got the one to many and many to ones working  |  5 |   |
 | 11/6/21  | Finalized the DaoTests and fixed the errors I was getting with my One to many and Many to ones  |  6 |   |
-|   |   |   |   |            
-            
+| 11/10/21 | Put together all MD files for project and built out simple layouts for webpages | 2  |   |    
+| 11/12/21 | Got the tables displaying all correct forms of data on all pages properly | 5 |  |
+| 11/13/21 | Built in proper links on the menu and for each reference, set up some bootstrap on links and Menu icons | 6 |  |
+
             

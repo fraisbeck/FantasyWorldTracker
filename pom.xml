@@ -30,6 +30,9 @@
     <jackson-version>2.10.0</jackson-version>
     <hibernate-version>5.4.4.Final</hibernate-version>
     <jsonassert.version>1.5.0</jsonassert.version>
+    <auth0-version>3.4.1</auth0-version>
+    <json-version>20170516</json-version>
+    <commons-io-version>2.11.0</commons-io-version>
   </properties>
 
   <dependencies>
@@ -163,7 +166,22 @@
       <version>${jsonassert.version}</version>
       <scope>test</scope>
     </dependency>
-    
+    <dependency>
+      <groupId>com.auth0</groupId>
+      <artifactId>java-jwt</artifactId>
+      <version>${auth0-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>${json-version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io-version}</version>
+    </dependency>
 
   </dependencies>
   <build>
