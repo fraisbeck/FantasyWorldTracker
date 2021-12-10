@@ -1,5 +1,6 @@
 package worldbuilder.entity;
 
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -12,6 +13,10 @@ import java.util.Set;
  */
 @Entity(name = "Location")
 @Table(name = "locations")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Location {
 
     @Id
@@ -30,12 +35,6 @@ public class Location {
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Shop> shopsLocated = new HashSet<>();
-
-    /**
-     * Instantiates a new Locations.
-     */
-    public Location() {
-    }
 
     /**
      * Instantiates a new Locations.
@@ -63,98 +62,6 @@ public class Location {
         this.name = name;
         this.region = region;
         this.world = world;
-    }
-
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Gets region.
-     *
-     * @return the region
-     */
-    public Region getRegion() {
-        return region;
-    }
-
-    /**
-     * Sets region.
-     *
-     * @param region the region
-     */
-    public void setRegion(Region region) {
-        this.region = region;
-    }
-
-
-    /**
-     * Gets world.
-     *
-     * @return the world
-     */
-    public World getWorld() {
-        return world;
-    }
-
-    /**
-     * Sets world.
-     *
-     * @param world the world
-     */
-    public void setWorld(World world) {
-        this.world = world;
-    }
-
-
-    /**
-     * Gets shops located.
-     *
-     * @return the shops located
-     */
-    public Set<Shop> getShopsLocated() {
-        return shopsLocated;
-    }
-
-    /**
-     * Sets shops located.
-     *
-     * @param shopsLocated the shops located
-     */
-    public void setShopsLocated(Set<Shop> shopsLocated) {
-        this.shopsLocated = shopsLocated;
     }
 
     /**

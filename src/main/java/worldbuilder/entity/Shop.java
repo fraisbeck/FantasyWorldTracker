@@ -1,17 +1,20 @@
 package worldbuilder.entity;
 
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * The type Shops.
  */
 @Entity(name = "Shop")
 @Table(name = "shops")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Shop {
 
     @Id
@@ -34,31 +37,6 @@ public class Shop {
     private World world;
 
     /**
-     * Instantiates a new Shops.
-     */
-    public Shop() {
-    }
-
-    /**
-     * Instantiates a new Shops.
-     *
-     * @param id           the id
-     * @param name         the name
-     * @param shopCategory the shop category
-     * @param location     the location id
-     * @param owner        the owner id
-     * @param world        the world id
-     */
-    public Shop(int id, String name, String shopCategory, Location location, Owner owner, World world) {
-        this.id = id;
-        this.name = name;
-        this.shopCategory = shopCategory;
-        this.location = location;
-        this.owner = owner;
-        this.world = world;
-    }
-
-    /**
      * Instantiates a new Shop.
      *
      * @param name         the name
@@ -72,105 +50,6 @@ public class Shop {
         this.shopCategory = shopCategory;
         this.location = location;
         this.owner = owner;
-        this.world = world;
-    }
-
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Gets shop category.
-     *
-     * @return the shop category
-     */
-    public String getShopCategory() {
-        return shopCategory;
-    }
-
-    /**
-     * Sets shop category.
-     *
-     * @param shopCategory the shop category
-     */
-    public void setShopCategory(String shopCategory) {
-        this.shopCategory = shopCategory;
-    }
-
-    /**
-     * Gets location id.
-     *
-     * @return the location id
-     */
-    public Location getLocation() {
-        return location;
-    }
-
-    /**
-     * Sets location id.
-     *
-     * @param location the location id
-     */
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    /**
-     * Gets owner id.
-     *
-     * @return the owner id
-     */
-    public Owner getOwner() {
-        return owner;
-    }
-
-    /**
-     * Sets owner id.
-     *
-     * @param owner the owner id
-     */
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
-
-
-    public World getWorld() {
-        return world;
-    }
-
-    public void setWorld(World world) {
         this.world = world;
     }
 

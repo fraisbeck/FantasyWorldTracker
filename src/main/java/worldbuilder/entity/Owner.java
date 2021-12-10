@@ -1,5 +1,6 @@
 package worldbuilder.entity;
 
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -12,6 +13,10 @@ import java.util.Set;
  */
 @Entity(name = "Owner")
 @Table(name = "owners")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Owner {
 
     @Id
@@ -31,12 +36,6 @@ public class Owner {
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Shop> shopsOwned = new HashSet<>();
-
-    /**
-     * Instantiates a new Owners.
-     */
-    public Owner() {
-    }
 
     /**
      * Instantiates a new Owners.
@@ -68,116 +67,6 @@ public class Owner {
         this.lastName = lastName;
         this.profession = profession;
         this.world = world;
-    }
-
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets first name.
-     *
-     * @return the first name
-     */
-    public String getFirstName() {
-        return firstName;
-    }
-
-    /**
-     * Sets first name.
-     *
-     * @param firstName the first name
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    /**
-     * Gets last name.
-     *
-     * @return the last name
-     */
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
-     * Sets last name.
-     *
-     * @param lastName the last name
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    /**
-     * Gets profession.
-     *
-     * @return the profession
-     */
-    public String getProfession() {
-        return profession;
-    }
-
-    /**
-     * Sets profession.
-     *
-     * @param profession the profession
-     */
-    public void setProfession(String profession) {
-        this.profession = profession;
-    }
-
-
-    /**
-     * Gets world.
-     *
-     * @return the world
-     */
-    public World getWorld() {
-        return world;
-    }
-
-    /**
-     * Sets world.
-     *
-     * @param world the world
-     */
-    public void setWorld(World world) {
-        this.world = world;
-    }
-
-
-    /**
-     * Gets shops owned.
-     *
-     * @return the shops owned
-     */
-    public Set<Shop> getShopsOwned() {
-        return shopsOwned;
-    }
-
-    /**
-     * Sets shops owned.
-     *
-     * @param shopsOwned the shops owned
-     */
-    public void setShopsOwned(Set<Shop> shopsOwned) {
-        this.shopsOwned = shopsOwned;
     }
 
     /**

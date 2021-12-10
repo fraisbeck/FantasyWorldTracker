@@ -1,5 +1,6 @@
 package worldbuilder.entity;
 
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -12,6 +13,10 @@ import java.util.Set;
  */
 @Entity(name = "Region")
 @Table(name = "regions")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Region {
 
     @Id
@@ -30,12 +35,6 @@ public class Region {
 
     @OneToMany(mappedBy = "region", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Location> regionLocations = new HashSet<>();
-
-    /**
-     * Instantiates a new Regions.
-     */
-    public Region() {
-    }
 
     /**
      * Instantiates a new Regions.
@@ -63,98 +62,6 @@ public class Region {
         this.name = name;
         this.continent = continent;
         this.world = world;
-    }
-
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Gets continent id.
-     *
-     * @return the continent id
-     */
-    public Continent getContinent() {
-        return continent;
-    }
-
-    /**
-     * Sets continent id.
-     *
-     * @param continent the continent id
-     */
-    public void setContinent(Continent continent) {
-        this.continent = continent;
-    }
-
-
-    /**
-     * Gets world.
-     *
-     * @return the world
-     */
-    public World getWorld() {
-        return world;
-    }
-
-    /**
-     * Sets world.
-     *
-     * @param world the world
-     */
-    public void setWorld(World world) {
-        this.world = world;
-    }
-
-
-    /**
-     * Gets region locations.
-     *
-     * @return the region locations
-     */
-    public Set<Location> getRegionLocations() {
-        return regionLocations;
-    }
-
-    /**
-     * Sets region locations.
-     *
-     * @param regionLocations the region locations
-     */
-    public void setRegionLocations(Set<Location> regionLocations) {
-        this.regionLocations = regionLocations;
     }
 
     /**

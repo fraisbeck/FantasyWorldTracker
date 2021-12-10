@@ -1,5 +1,6 @@
 package worldbuilder.entity;
 
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -12,6 +13,10 @@ import java.util.Set;
  */
 @Entity(name = "Item")
 @Table(name = "items")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Item {
 
     @Id
@@ -28,12 +33,6 @@ public class Item {
 
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Inventory> inventoriesContainingItem = new HashSet<>();
-
-    /**
-     * Instantiates a new Items.
-     */
-    public Item() {
-    }
 
     /**
      * Instantiates a new Items.
@@ -63,96 +62,6 @@ public class Item {
         this.category = category;
     }
 
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Gets rarity.
-     *
-     * @return the rarity
-     */
-    public String getRarity() {
-        return rarity;
-    }
-
-    /**
-     * Sets rarity.
-     *
-     * @param rarity the rarity
-     */
-    public void setRarity(String rarity) {
-        this.rarity = rarity;
-    }
-
-    /**
-     * Gets category.
-     *
-     * @return the category
-     */
-    public String getCategory() {
-        return category;
-    }
-
-    /**
-     * Sets category.
-     *
-     * @param category the category
-     */
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-
-    /**
-     * Gets inventories containing item.
-     *
-     * @return the inventories containing item
-     */
-    public Set<Inventory> getInventoriesContainingItem() {
-        return inventoriesContainingItem;
-    }
-
-    /**
-     * Sets inventories containing item.
-     *
-     * @param inventoriesContainingItem the inventories containing item
-     */
-    public void setInventoriesContainingItem(Set<Inventory> inventoriesContainingItem) {
-        this.inventoriesContainingItem = inventoriesContainingItem;
-    }
 
     /**
      * Add inventory.

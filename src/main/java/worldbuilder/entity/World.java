@@ -1,5 +1,6 @@
 package worldbuilder.entity;
 
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -12,6 +13,10 @@ import java.util.Set;
  */
 @Entity(name = "World")
 @Table(name = "worlds")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class World {
 
     @Id
@@ -27,12 +32,6 @@ public class World {
 
     @OneToMany(mappedBy = "world", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Continent> worldContinents = new HashSet<>();
-
-    /**
-     * Instantiates a new Worlds.
-     */
-    public World() {
-    }
 
     /**
      * Instantiates a new World.
@@ -56,79 +55,6 @@ public class World {
     public World(String name, User user) {
         this.name = name;
         this.user = user;
-    }
-
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    /**
-     * Gets user.
-     *
-     * @return the user
-     */
-    public User getUser() {
-        return user;
-    }
-
-    /**
-     * Sets user.
-     *
-     * @param user the user
-     */
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    /**
-     * Gets world continents.
-     *
-     * @return the world continents
-     */
-    public Set<Continent> getWorldContinents() {
-        return worldContinents;
-    }
-
-    /**
-     * Sets world continents.
-     *
-     * @param worldContinents the world continents
-     */
-    public void setWorldContinents(Set<Continent> worldContinents) {
-        this.worldContinents = worldContinents;
     }
 
     /**

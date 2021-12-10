@@ -1,5 +1,6 @@
 package worldbuilder.entity;
 
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -12,6 +13,10 @@ import java.util.Set;
  */
 @Entity(name = "Continent")
 @Table(name = "continents")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Continent {
 
     @Id
@@ -27,12 +32,6 @@ public class Continent {
 
     @OneToMany(mappedBy = "continent", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Region> continentalRegions = new HashSet<>();
-
-    /**
-     * Instantiates a new Continents.
-     */
-    public Continent() {
-    }
 
     /**
      * Instantiates a new Continents.
@@ -56,78 +55,6 @@ public class Continent {
     public Continent(String name, World world) {
         this.name = name;
         this.world = world;
-    }
-
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Gets world id.
-     *
-     * @return the world id
-     */
-    public World getWorld() {
-        return world;
-    }
-
-    /**
-     * Sets world id.
-     *
-     * @param world the world id
-     */
-    public void setWorld(World world) {
-        this.world = world;
-    }
-
-    /**
-     * Gets continental regions.
-     *
-     * @return the continental regions
-     */
-    public Set<Region> getContinentalRegions() {
-        return continentalRegions;
-    }
-
-    /**
-     * Sets continental regions.
-     *
-     * @param continentalRegions the continental regions
-     */
-    public void setContinentalRegions(Set<Region> continentalRegions) {
-        this.continentalRegions = continentalRegions;
     }
 
     /**
