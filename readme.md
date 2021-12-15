@@ -1,4 +1,5 @@
 # Frank Raisbeck Individual Project
+[Project Video Link](https://youtu.be/Cr4z47-6PvI)
 
 ### Problem Statement
 
@@ -32,6 +33,7 @@ to keep track of everything they may need.
 ### Examples of documentation of progress, reflections, and time spent on this class
 
 ### [Journal](Journal.md)
+
 
 
 Objectives

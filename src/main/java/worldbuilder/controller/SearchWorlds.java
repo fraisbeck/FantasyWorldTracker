@@ -26,9 +26,9 @@ public class SearchWorlds extends HttpServlet {
 
 
         if (req.getParameter("submit").equals("search")) {
-            req.setAttribute("worlds", worlds.getByIdentifierLike(req.getParameter("searchType"), req.getParameter("searchTerm")));
+            session.setAttribute("worlds", worlds.getByIdentifierLike(req.getParameter("searchType"), req.getParameter("searchTerm")));
         } else {
-            req.setAttribute("worlds", worlds.getAll());
+            session.setAttribute("worlds", worlds.getAll());
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/worldResults.jsp");
         dispatcher.forward(req, resp);
