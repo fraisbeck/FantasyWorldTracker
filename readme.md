@@ -24,19 +24,14 @@ to keep track of everything they may need.
 
 ### Design
 * [User Stories](DesignDocuments/userStories.md)
-* [Tasks]()
 * [Screen Design]()
-* [Application]()
-* [Database Design]()
+* [Database Design](docs/WorldBuilderERD.PNG)
 
 ### [Project Plan](ProjectPlan.md)
 
 ### Examples of documentation of progress, reflections, and time spent on this class
 
-### [Weekly Reflection](WeeklyReflection.md)
 ### [Journal](Journal.md)
-### [Time Log](timeLog.md)
-
 
 
 Objectives
