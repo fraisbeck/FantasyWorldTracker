@@ -23,7 +23,7 @@ to keep track of everything they may need.
 | Data Validation | Bootstrap Validator |
 
 ### Design
-* [User Stories]()
+* [User Stories](DesignDocuments/userStories.md)
 * [Tasks]()
 * [Screen Design]()
 * [Application]()

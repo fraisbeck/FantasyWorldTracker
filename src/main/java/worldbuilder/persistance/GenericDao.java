@@ -73,6 +73,23 @@ public class GenericDao<T> {
         return id;
     }
 
+    public <T>T getSingleByIdentifierEqual(String identifier, String searchTerm) {
+        logger.debug("Searching for entity with " + identifier + " = " + searchTerm);
+        Session session = getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = (CriteriaQuery<T>) builder.createQuery(type);
+        Root<T> root = (Root<T>) query.from(type);
+        Expression<String> propertyPath = root.get(identifier);
+        query.where(builder.equal(propertyPath, searchTerm));
+        List<T> list = session.createQuery(query).getResultList();
+        T entity = null;
+        if (!list.isEmpty()) {
+            entity = list.get(0);
+        }
+        session.close();
+        return entity;
+    }
+
     public List<T> getByIdentifierEqual(String identifier, String searchTerm) {
         logger.debug("Searching for entity with " + identifier + " = " + searchTerm);
         Session session = getSession();

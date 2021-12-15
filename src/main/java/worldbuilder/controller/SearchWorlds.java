@@ -6,6 +6,7 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import worldbuilder.entity.*;
 import worldbuilder.persistance.GenericDao;
@@ -19,7 +20,11 @@ import java.io.IOException;
 public class SearchWorlds extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        User user = (User) session.getAttribute("user");
         GenericDao<World> worlds = new GenericDao<>(World.class);
+
+
         if (req.getParameter("submit").equals("search")) {
             req.setAttribute("worlds", worlds.getByIdentifierLike(req.getParameter("searchType"), req.getParameter("searchTerm")));
         } else {

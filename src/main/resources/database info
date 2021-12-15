@@ -1,0 +1,8 @@
+local url: jdbc:mysql://localhost:3306/worldbuilder
+aws url: jdbc:mysql://aa1kwnqh653nd6x.cthxuuyzjfo9.us-east-2.rds.amazonaws.com:3306
+
+local username: root
+local password:MySQLPASS2021
+
+aws username: fraisbeck
+aws password: fraisbeckFWB
